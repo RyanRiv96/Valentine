@@ -263,14 +263,14 @@ function handleNo() {
 
 
 
-    no.addEventListener("mouseenter", moveNo);
-no.addEventListener("click", moveNo);
+ no.addEventListener("mouseenter", handleNo);
+no.addEventListener("click", handleNo);
 no.addEventListener("touchstart", e => {
   e.preventDefault();
-  moveNo();
+  handleNo();
 });
 
-    moveNo();
+positionNo();
 
   </script>
 </body>
