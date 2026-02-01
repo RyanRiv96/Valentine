@@ -237,7 +237,16 @@
   success.style.display = "block";
 };
 
-function moveNo() {
+function positionNo() {
+  const rect = container.getBoundingClientRect();
+  const x = Math.random() * (rect.width - 140);
+  const y = Math.random() * (rect.height - 40);
+
+  no.style.left = x + "px";
+  no.style.top = y + "px";
+}
+
+function handleNo() {
   noClickCount++;
 
   if (noClickCount === 1) {
@@ -248,13 +257,9 @@ function moveNo() {
     no.textContent = "Michael, please 😂";
   }
 
-  const rect = container.getBoundingClientRect();
-  const x = Math.random() * (rect.width - 140);
-  const y = Math.random() * (rect.height - 40);
-
-  no.style.left = x + "px";
-  no.style.top = y + "px";
+  positionNo();
 }
+
 
 
 
