@@ -237,15 +237,16 @@
   success.style.display = "block";
 };
 
+function moveNo() {
+  noClickCount++;
 
-   if (noClickCount === 1) {
-  no.textContent = "I think you meant to say yes 🙂";
-} else if (noClickCount === 2) {
-  no.textContent = "Well… this is awkward 😬";
-} else if (noClickCount === 3) {
-  no.textContent = "Michael, please 😂";
-}
-
+  if (noClickCount === 1) {
+    no.textContent = "I think you meant to say yes 🙂";
+  } else if (noClickCount === 2) {
+    no.textContent = "Well… this is awkward 😬";
+  } else if (noClickCount === 3) {
+    no.textContent = "Michael, please 😂";
+  }
 
   const rect = container.getBoundingClientRect();
   const x = Math.random() * (rect.width - 140);
@@ -256,13 +257,14 @@
 }
 
 
-    no.addEventListener("mouseenter", moveNo);
-    no.addEventListener("touchstart", e=>{
-      e.preventDefault();
-      moveNo();
-      no.addEventListener("click", moveNo);
 
-    });
+    no.addEventListener("mouseenter", moveNo);
+no.addEventListener("click", moveNo);
+no.addEventListener("touchstart", e => {
+  e.preventDefault();
+  moveNo();
+});
+
   </script>
 </body>
 </html>
