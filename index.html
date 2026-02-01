@@ -220,10 +220,19 @@
     let noClickCount = 0;
 
 
-    yes.onclick=()=>{
-      ask.style.display="none";
-      success.style.display="block";
-    };
+   yes.onclick = () => {
+  fetch("https://formspree.io/f/xbdkydyy", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: "Michael clicked YES 💘"
+    })
+  }).catch(() => {});
+
+  ask.style.display = "none";
+  success.style.display = "block";
+};
+
 
    if (noClickCount === 1) {
   no.textContent = "I think you meant to say yes 🙂";
