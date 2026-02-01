@@ -217,19 +217,31 @@
     const ask=document.getElementById("ask");
     const success=document.getElementById("success");
     const container=document.getElementById("buttons");
+    let noClickCount = 0;
+
 
     yes.onclick=()=>{
       ask.style.display="none";
       success.style.display="block";
     };
 
-    function moveNo(){
-      const rect=container.getBoundingClientRect();
-      const x=Math.random()*(rect.width-100);
-      const y=Math.random()*(rect.height-40);
-      no.style.left=x+"px";
-      no.style.top=y+"px";
-    }
+   if (noClickCount === 1) {
+  no.textContent = "I think you meant to say yes 🙂";
+} else if (noClickCount === 2) {
+  no.textContent = "Well… this is awkward 😬";
+} else if (noClickCount === 3) {
+  no.textContent = "Michael, please 😂";
+}
+
+
+  const rect = container.getBoundingClientRect();
+  const x = Math.random() * (rect.width - 140);
+  const y = Math.random() * (rect.height - 40);
+
+  no.style.left = x + "px";
+  no.style.top = y + "px";
+}
+
 
     no.addEventListener("mouseenter", moveNo);
     no.addEventListener("touchstart", e=>{
