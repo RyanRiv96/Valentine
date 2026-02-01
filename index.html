@@ -80,10 +80,14 @@
     }
 
     #no{
-      background:white;
-      border:2px solid #ddd;
-      position:absolute;
-    }
+  background:white;
+  border:2px solid #ddd;
+  position:absolute;
+  left: 55%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
 
     .hint{
       font-size:13px;
@@ -256,6 +260,8 @@
     no.addEventListener("touchstart", e=>{
       e.preventDefault();
       moveNo();
+      no.addEventListener("click", moveNo);
+
     });
   </script>
 </body>
